@@ -579,9 +579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0437df4bb9b9a604489380d4c24c78d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumbCount: 2
-  jumb: 100
-  speed: 0.01
+  jumpCount: 2
+  jump: 100
+  speed: 5
   isGround: 0
   characterName: Little
   dog: {fileID: 188668073}
@@ -3362,7 +3362,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574954079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 188668077}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1574954079
@@ -4414,7 +4425,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: -2, z: 0}
@@ -4440,7 +4451,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -2, z: 0}
@@ -5454,7 +5465,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 64, y: 2, z: 0}
@@ -5704,7 +5715,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2077312621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 188668077}
+        m_MethodName: Slide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2077312621
