@@ -17,45 +17,62 @@ public class Dog : MonoBehaviour
     public bool isGround;                                    ///bool  布林類別 值為開關true/flase
     [Header("角色名稱")]                                    ///public Transform dog, cam; 
     public string characterName = "Little";                 ///public Transform dog; 狗
-    public Transform dog, cam;                              ///public Transform cam; 攝影機
-                                                            ///這兩段的精寫
+    public Transform dog, cam;                              ///public Transform cam; 攝影機///這兩段的精寫
+    public Animator Anim;                                   ///動畫控制器                    
+    #endregion
+   
+    #region 事件
+
 
     /// 初始事件遊戲開始執行一次
-   
     private void Start()                           
     {
-        print("壓哈");
+        print("開始");
+        Debug.Log("");
+        
     }
+
+
+
     ///更新事件每桢執行一次
     private void Update()
     {
-        print("哇哇");
+        print("持續開始");
         MoveDog();
         MoveCamear();
     }
+    #endregion
+
+    # region 狗移動方法
     ///狗移動方法
     private void MoveDog()
     {                                                                               ///Translate()為移動控制指令
         dog.Translate(speed * Time.deltaTime, 0, 0);
     }
+    #endregion
+    # region 移動方法
+
     ///Camear移動方法   
     private void MoveCamear()
     {
         cam.Translate(speed * Time.deltaTime, 0, 0);                                
     
     }
-
+    #endregion
+    #region 跳要方法
     /// 跳躍方法
-
     public void Jump()
     {
         print("跳躍");
+        Anim.SetBool("跳要開關",true);
     }
+    #endregion
+    #region 滑行方法
     ///滑行方法
     public void Slide()
     {
         print("滑行");
-
+        Anim.SetBool("滑行開關", true);
     }
     #endregion
 }
