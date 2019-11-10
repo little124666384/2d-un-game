@@ -9,10 +9,10 @@ public class Dog : MonoBehaviour
     ///private私人(不顯示)public公開(顯示)
     [Header("跳躍次數")][Range( 1, 10)]
     public int jumpCount = 2;                                ///int 整數類別
-    [Header("跳躍高度")][Range( 1, 100)]
-    public int jump = 100;
+    [Header("跳躍高度")][Range( 1, 1000)]
+    public int jump = 500;
     [Header("移動速度")][Range( 0.01f, 10)]
-    public float speed = 10.5f;                              ///float 浮點類別
+    public float speed = 6.5f;                              ///float 浮點類別
     [Header("是否在地板上")][Tooltip("用來判斷角色是否在地板上")]
     public bool isGround;                                    ///bool  布林類別 值為開關true/flase
     [Header("角色名稱")]                                    ///public Transform dog, cam; 
@@ -22,13 +22,15 @@ public class Dog : MonoBehaviour
     #endregion
    
     #region 事件
+    
+    public Animator anim;
 
 
     /// 初始事件遊戲開始執行一次
     private void Start()                           
     {
-        print("開始");
-        Debug.Log("");
+       // print("開始");
+        
         
     }
 
@@ -63,8 +65,8 @@ public class Dog : MonoBehaviour
     /// 跳躍方法
     public void Jump()
     {
-        print("跳躍");
-        Anim.SetBool("跳要開關",true);
+        print("跳要");
+        Anim.SetBool("跳要開關", true);
     }
     #endregion
     #region 滑行方法
@@ -74,5 +76,15 @@ public class Dog : MonoBehaviour
         print("滑行");
         Anim.SetBool("滑行開關", true);
     }
+    /// <summary>
+    /// 重設定跳耀與滑行布林值
+    /// </summary>
+    public void ReseatAnimator()
+    {
+        Anim.SetBool("跳要開關", false);
+        Anim.SetBool("滑行開關", false);
+
+    }
     #endregion
 }
+ 

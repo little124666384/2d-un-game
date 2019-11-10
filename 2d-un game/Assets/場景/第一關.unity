@@ -564,8 +564,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: -0.32896757}
-  m_Size: {x: 1.3951931, y: 3.4512477}
+  m_Offset: {x: -0.00000047683716, y: -1.0893226}
+  m_Size: {x: 1.3951931, y: 1.9305377}
   m_Direction: 0
 --- !u!114 &188668077
 MonoBehaviour:
@@ -580,13 +580,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpCount: 2
-  jump: 100
-  speed: 5
+  jump: 1000
+  speed: 6.4
   isGround: 0
   characterName: Little
   dog: {fileID: 188668073}
   cam: {fileID: 389988922}
   Anim: {fileID: 188668074}
+  anim: {fileID: 188668074}
 --- !u!1 &200997631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3295,7 @@ GameObject:
   - component: {fileID: 1574954080}
   - component: {fileID: 1574954079}
   - component: {fileID: 1574954078}
+  - component: {fileID: 1574954081}
   m_Layer: 5
   m_Name: "jump\u6309\u9215"
   m_TagString: Untagged
@@ -3363,18 +3365,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574954079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 188668077}
-        m_MethodName: Jump
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1574954079
@@ -3415,6 +3406,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574954076}
   m_CullTransparentMesh: 0
+--- !u!114 &1574954081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574954076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 188668077}
+          m_MethodName: Jump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 188668077}
+          m_MethodName: ReseatAnimator
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1623755798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,7 +4451,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 64, y: -3, z: 0}
@@ -4530,7 +4568,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 50, y: -2, z: 0}
@@ -4725,7 +4763,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 55, y: -1, z: 0}
@@ -4790,7 +4828,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 24, y: 0, z: 0}
@@ -4972,7 +5010,7 @@ Tilemap:
       - {fileID: 21300000, guid: 273ba8fade558457eb836eefe69bba7f, type: 3}
       - {fileID: 21300000, guid: 4f35b6058a719446ba48dc4dc2704635, type: 3}
       - {fileID: 21300000, guid: 056b6a3f6e14d4af2a7d641c4dd44e79, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 50, y: 0, z: 0}
@@ -5647,6 +5685,7 @@ GameObject:
   - component: {fileID: 2077312622}
   - component: {fileID: 2077312621}
   - component: {fileID: 2077312620}
+  - component: {fileID: 2077312623}
   m_Layer: 5
   m_Name: "Slide\u6309\u9215 "
   m_TagString: Untagged
@@ -5716,18 +5755,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2077312621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 188668077}
-        m_MethodName: Slide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2077312621
@@ -5768,6 +5796,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077312618}
   m_CullTransparentMesh: 0
+--- !u!114 &2077312623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077312618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 188668077}
+          m_MethodName: Slide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 188668077}
+          m_MethodName: ReseatAnimator
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &2135476499
 GameObject:
   m_ObjectHideFlags: 0
