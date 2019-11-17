@@ -19,23 +19,21 @@ public class Dog : MonoBehaviour
     public string characterName = "Little";                 ///public Transform dog; 狗
     public Transform dog, cam;                              ///public Transform cam; 攝影機///這兩段的精寫
     public Animator Anim;                                   ///動畫控制器                    
-    #endregion
+    public CapsuleCollider2D CC2D;
+    public Rigidbody2D r2d;
+    
+   #endregion
    
     #region 事件
-    
-    public Animator anim;
-
 
     /// 初始事件遊戲開始執行一次
     private void Start()                           
     {
        // print("開始");
+       
         
         
     }
-
-
-
     ///更新事件每桢執行一次
     private void Update()
     {
@@ -43,46 +41,65 @@ public class Dog : MonoBehaviour
         MoveDog();
         MoveCamear();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //小刮弧的布林值為true事會執行{}內的描述
+        if (collision.gameObject.name=="地板")
+        {
+            isGround = true;
+
+        }
+    }
     #endregion
 
-    # region 狗移動方法
-    ///狗移動方法
+    #region 方法
+    /// <summary>
+    /// 狗移動方法
+    /// </summary>
     private void MoveDog()
     {                                                                               ///Translate()為移動控制指令
         dog.Translate(speed * Time.deltaTime, 0, 0);
     }
-    #endregion
-    # region 移動方法
-
-    ///Camear移動方法   
+    /// <summary>
+    /// Camear移動方法
+    /// </summary>
     private void MoveCamear()
     {
         cam.Translate(speed * Time.deltaTime, 0, 0);                                
     
     }
-    #endregion
-    #region 跳要方法
+    /// <summary>
     /// 跳躍方法
+    /// </summary>
     public void Jump()
     {
-        print("跳要");
-        Anim.SetBool("跳要開關", true);
+        if (isGround==true)
+        {
+          print("跳要");
+          Anim.SetBool("跳要開關", true);
+          r2d.AddForce(new Vector2(0,jump));
+
+        }
     }
-    #endregion
-    #region 滑行方法
-    ///滑行方法
+    /// <summary>
+    /// 滑行方法,縮小設定碰撞器
+    /// </summary>
     public void Slide()
     {
         print("滑行");
         Anim.SetBool("滑行開關", true);
+        CC2D.offset=new Vector2(-0.1f, -1.044564f);
+        CC2D.size = new Vector2(0.95f, 1.84102f);
     }
     /// <summary>
-    /// 重設定跳耀與滑行布林值
+    /// 重設定跳耀與滑行布林值,從新設定碰撞器
     /// </summary>
     public void ReseatAnimator()
     {
         Anim.SetBool("跳要開關", false);
         Anim.SetBool("滑行開關", false);
+        CC2D.offset = new Vector2(0, -1.044564f);
+        CC2D.size = new Vector2(1.395193f, 1.84102f);
 
     }
     #endregion
