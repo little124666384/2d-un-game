@@ -24,11 +24,12 @@ public class Dog : MonoBehaviour
     private CapsuleCollider2D CC2D;
     private Rigidbody2D r2d;                                //跳耀控制代碼001
     private AudioSource Aud;
+                               //圖片渲染
     #endregion
 
     #region 事件
 
-    /// 初始事件遊戲開始執行一次
+    /// 初始事件:遊戲開始執行一次
     private void Start()
     {
         // print("開始");
@@ -41,7 +42,7 @@ public class Dog : MonoBehaviour
 
 
     }
-    ///更新事件每桢執行一次
+    ///更新事件:每桢執行一次
     private void Update()
     {
         print("持續開始");
@@ -57,6 +58,10 @@ public class Dog : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// 碰撞事件:當物見碰撞開始實執行一次
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
     
@@ -76,6 +81,7 @@ public class Dog : MonoBehaviour
     private void Damamg()
     {
         Debug.Log("受傷");
+        
     }
 
 
